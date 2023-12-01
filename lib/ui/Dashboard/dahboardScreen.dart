@@ -3,7 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reserva_parapente/ui/Screens/Reservations/ReservationScreen.dart';
 import 'package:reserva_parapente/ui/Screens/formPayment/formPayScreen.dart';
 import 'package:reserva_parapente/ui/Screens/package/packageScreen.dart';
+import 'package:reserva_parapente/ui/Screens/reports/reportScreen.dart';
 import 'package:reserva_parapente/ui/Screens/statePay/StatePayScreen.dart';
+import 'package:reserva_parapente/ui/Screens/users/users.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -293,7 +295,124 @@ class OptionDrawerLink extends StatelessWidget {
                     Text('Reserva',
                       style: TextStyle(
                         color: Color(0xFF1B1446),
-                        fontSize: 20,
+                        fontSize: 18,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: 10),
+          Container(
+            width: 160,
+            height:double.infinity,
+            // color: Colors.cyan,
+            child: InkWell(
+              onTap: (){},
+              child: Container(
+                padding: EdgeInsets.only(left: 15, top: 0, bottom: 0 ,right: 15),
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Color(0xFFF6F8FB), 
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 35,
+                      height: 35,
+                      // color: Colors.amber,
+                      child: SvgPicture.asset('assets/caja.svg',
+                      color: Color(0xFF235DFF),
+                      ),
+                    ),
+                    SizedBox(width: 10,),
+                    Text('Paquetes',
+                      style: TextStyle(
+                        color: Color(0xFF1B1446),
+                        fontSize: 18,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: 10),
+          Container(
+            width: 160,
+            height:double.infinity,
+            // color: Colors.cyan,
+            child: InkWell(
+              onTap: (){},
+              child: Container(
+                padding: EdgeInsets.only(left: 15, top: 0, bottom: 0 ,right: 15),
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Color(0xFFF6F8FB), 
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 35,
+                      height: 35,
+                      // color: Colors.amber,
+                      child: SvgPicture.asset('assets/cheque.svg',
+                      color: Color(0xFF235DFF),
+                      ),
+                    ),
+                    SizedBox(width: 10,),
+                    Text('Cuentas',
+                      style: TextStyle(
+                        color: Color(0xFF1B1446),
+                        fontSize: 18,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: 10),
+          Container(
+            width: 180,
+            height:double.infinity,
+            // color: Colors.cyan,
+            child: InkWell(
+              onTap: (){},
+              child: Container(
+                padding: EdgeInsets.only(left: 15, top: 0, bottom: 0 ,right: 15),
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Color(0xFFF6F8FB), 
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 35,
+                      height: 35,
+                      // color: Colors.amber,
+                      child: SvgPicture.asset('assets/veri.svg',
+                      color: Color(0xFF235DFF),
+                      ),
+                    ),
+                    SizedBox(width: 10,),
+                    Text('Estado pago',
+                      style: TextStyle(
+                        color: Color(0xFF1B1446),
+                        fontSize: 18,
                       ),
                     )
                   ],
@@ -332,7 +451,7 @@ class OptionDrawerLink extends StatelessWidget {
                     Text('Reserva',
                       style: TextStyle(
                         color: Color(0xFF1B1446),
-                        fontSize: 20,
+                        fontSize: 18,
                       ),
                     )
                   ],
@@ -371,7 +490,7 @@ class OptionDrawerLink extends StatelessWidget {
                     Text('Reserva',
                       style: TextStyle(
                         color: Color(0xFF1B1446),
-                        fontSize: 20,
+                        fontSize: 18,
                       ),
                     )
                   ],
@@ -615,11 +734,14 @@ class ListOptions extends StatelessWidget {
           ),
         ),
         ListTile(
-          onTap: () {},
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => UserScreen()));
+          },
           contentPadding: EdgeInsets.only(left: 0),
           leading: SizedBox(
             height: 28,
-            width: 28,
+            width: 28, 
             child: SvgPicture.asset(
               'assets/user.svg',
               color: Color(0xFF243465),
@@ -634,7 +756,11 @@ class ListOptions extends StatelessWidget {
           ),
         ),
         ListTile(
-          onTap: () {},
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => BarChartSample2()));
+          },
           contentPadding: EdgeInsets.only(left: 0),
           leading: SizedBox(
             height: 28,

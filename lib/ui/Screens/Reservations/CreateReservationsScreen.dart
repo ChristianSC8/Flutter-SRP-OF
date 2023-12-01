@@ -63,7 +63,7 @@ class _CreateReservationsContentState extends State<CreateReservationsContent> {
                   width: 50,
                 ),
                 Text(
-                  'Nuevo estado de pago',
+                  'Nueva reserva',
                   style: TextStyle(
                     fontSize: 20,
                     color: Color(0xFF243465),
@@ -78,7 +78,7 @@ class _CreateReservationsContentState extends State<CreateReservationsContent> {
                 padding: EdgeInsets.zero,
                 children: [
                   Text(
-                    'Nombre',
+                    'Nombre cliente',
                     style: TextStyle(fontSize: 18, color: Color(0xFF243465)),
                   ),
                   TextField(
@@ -111,15 +111,14 @@ class _CreateReservationsContentState extends State<CreateReservationsContent> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    'Descripcion',
+                    'Correo electronico',
                     style: TextStyle(fontSize: 18, color: Color(0xFF243465)),
                   ),
                   TextField(
-                    // controller: drescripController,
+                    // controller: nameController,
                     style: TextStyle(
                       color: Color(0xFF848A9C),
                     ),
-                    maxLines: 3,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -133,18 +132,181 @@ class _CreateReservationsContentState extends State<CreateReservationsContent> {
                       ),
                       hintText: "",
                       hintStyle: TextStyle(
-                        color: Color(0xFF848A9C),
-                        decoration: TextDecoration.none,
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
-                      ),
+                          color: Color(0xFF848A9C),
+                          decoration: TextDecoration.none,
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
                       contentPadding: EdgeInsets.symmetric(
-                        vertical: 16.0,
-                        horizontal: 16.0,
-                      ),
+                          vertical: 14.0,
+                          horizontal:
+                              16.0), // Ajusta estos valores según tus necesidades
                     ),
                   ),
-
+                  const SizedBox(height: 10),
+                  Text(
+                    'Teléfono',
+                    style: TextStyle(fontSize: 18, color: Color(0xFF243465)),
+                  ),
+                  TextField(
+                    // controller: nameController,
+                    style: TextStyle(
+                      color: Color(0xFF848A9C),
+                    ),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Color(0xFFF1F4FF)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Color(0xFF9DA8C3)),
+                      ),
+                      hintText: "",
+                      hintStyle: TextStyle(
+                          color: Color(0xFF848A9C),
+                          decoration: TextDecoration.none,
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 14.0,
+                          horizontal:
+                              16.0), // Ajusta estos valores según tus necesidades
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'Cantidad de pasajeros',
+                    style: TextStyle(fontSize: 18, color: Color(0xFF243465)),
+                  ),
+                  TextField(
+                    // controller: nameController,
+                    style: TextStyle(
+                      color: Color(0xFF848A9C),
+                    ),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Color(0xFFF1F4FF)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Color(0xFF9DA8C3)),
+                      ),
+                      hintText: "",
+                      hintStyle: TextStyle(
+                          color: Color(0xFF848A9C),
+                          decoration: TextDecoration.none,
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 14.0,
+                          horizontal:
+                              16.0), // Ajusta estos valores según tus necesidades
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'Forma pago',
+                    style: TextStyle(fontSize: 18, color: Color(0xFF243465)),
+                  ),
+                  TextField(
+                    // controller: nameController,
+                    style: TextStyle(
+                      color: Color(0xFF848A9C),
+                    ),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Color(0xFFF1F4FF)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Color(0xFF9DA8C3)),
+                      ),
+                      hintText: "",
+                      hintStyle: TextStyle(
+                          color: Color(0xFF848A9C),
+                          decoration: TextDecoration.none,
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 14.0,
+                          horizontal:
+                              16.0), // Ajusta estos valores según tus necesidades
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'Estado pago',
+                    style: TextStyle(fontSize: 18, color: Color(0xFF243465)),
+                  ),
+                  TextField(
+                    // controller: nameController,
+                    style: TextStyle(
+                      color: Color(0xFF848A9C),
+                    ),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Color(0xFFF1F4FF)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Color(0xFF9DA8C3)),
+                      ),
+                      hintText: "",
+                      hintStyle: TextStyle(
+                          color: Color(0xFF848A9C),
+                          decoration: TextDecoration.none,
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 14.0,
+                          horizontal:
+                              16.0), // Ajusta estos valores según tus necesidades
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'Paquete parapente',
+                    style: TextStyle(fontSize: 18, color: Color(0xFF243465)),
+                  ),
+                  TextField(
+                    // controller: nameController,
+                    style: TextStyle(
+                      color: Color(0xFF848A9C),
+                    ),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Color(0xFFF1F4FF)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide(color: Color(0xFF9DA8C3)),
+                      ),
+                      hintText: "",
+                      hintStyle: TextStyle(
+                          color: Color(0xFF848A9C),
+                          decoration: TextDecoration.none,
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal),
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 14.0,
+                          horizontal:
+                              16.0), // Ajusta estos valores según tus necesidades
+                    ),
+                  ),
                   const SizedBox(height: 20),
                   Container(
                     height: 52,

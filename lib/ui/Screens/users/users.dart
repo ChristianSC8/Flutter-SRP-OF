@@ -1,13 +1,16 @@
+
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reserva_parapente/bloc/estadoPago/estadopago_bloc.dart';
 import 'package:reserva_parapente/modelo/estadopagoModelo.dart';
 import 'package:reserva_parapente/repository/EstadopagoRepositoty.dart';
-import 'package:reserva_parapente/ui/Screens/statePay/CreateStatePay.dart';
+import 'package:reserva_parapente/ui/Screens/users/createUser.dart';
 
-class StatePayScreen extends StatelessWidget {
-  const StatePayScreen({super.key});
+class UserScreen extends StatelessWidget {
+  const UserScreen({super.key});
 
   @override
   Widget build(BuildContext context) { 
@@ -128,7 +131,7 @@ class _StatePayContenState extends State<StatePayConten> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CreatePayContent()));
+                            builder: (context) => CreateUser()));
                   },
                   child: Container(
                     height: 45,
@@ -154,101 +157,108 @@ class _StatePayContenState extends State<StatePayConten> {
               ],
             ),
             const SizedBox(height: 15),
-            Container(
-              child: TextField(
-                style: TextStyle(
-                  color: Color(0xFF848A9C),
-                ),
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    borderSide: BorderSide(color: Color(0xFFF1F4FF)),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    borderSide: BorderSide(color: Color(0xFF9DA8C3)),
-                  ),
-                  hintText: "Buscar",
-                  hintStyle: TextStyle(
-                    color: Color(0xFF848A9C),
-                    decoration: TextDecoration.none,
-                    fontSize: 18,
-                  ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 13.0),
-                  prefixIcon: Icon(Icons.search, size: 35),
-                  prefixIconColor: Color(0xFF9DA8C3),
-                ),
-              ),
+            MyForm(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+class MyForm extends StatefulWidget {
+  @override
+  _MyFormState createState() => _MyFormState();
+}
+
+class _MyFormState extends State<MyForm> {
+  final _formKey = GlobalKey<FormState>();
+
+  // Variables para almacenar datos del formulario
+  String _nombre = '';
+  String _correoElectronico = '';
+  String _rol = '';
+  String _estado = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Nombre'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor, ingresa tu nombre';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _nombre = value!;
+              },
             ),
-            const SizedBox(height: 10),
-            Expanded(
-              child: BlocBuilder<EstadopagoBloc, EstadopagoState>(
-                builder: (context, state) {
-                  if (state is EstadopagoLoadingState) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  } else if (state is EstadopagoLoadedState) {
-                    final statePayList = state.EstadopagoList;
-                    return statePayList.isEmpty
-                        ? Center(
-                            child: Text('No hay estados de pago disponibles.'))
-                        : Container(
-                            margin: EdgeInsets.all(0), // Ajusta el margen aquí
-                            padding:
-                                EdgeInsets.all(0), // Ajusta el padding aquí
-                            child: ListView.builder(
-                              padding: EdgeInsets.all(0),
-                              itemCount: statePayList.length,
-                              itemBuilder: (context, index) {
-                                final statePay = statePayList[index];
-                                return Container(
-                                  margin: EdgeInsets.all(0),
-                                  padding: EdgeInsets.all(0),
-                                  child: ListTile(
-                                    contentPadding:
-                                        EdgeInsets.fromLTRB(15, 0, 0, 0),
-                                    title: Text(
-                                      statePay.descripcion,
-                                      style: TextStyle(
-                                        color: Color(0xFF243465),
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                    trailing: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        IconButton(
-                                          padding: EdgeInsets.all(0),
-                                          icon: Icon(Icons.edit,
-                                              color: Color(0xFF848A9C)),
-                                          onPressed: () {},
-                                        ),
-                                        IconButton(
-                                          padding: EdgeInsets.all(0),
-                                          icon: Icon(Icons.delete,
-                                              color: Color(0xFF848A9C)),
-                                          onPressed: () {
-                                            modalDelete(statePay);
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          );
-                  } else if (state is EstadopagoError) {
-                    return Center(child: Text('Error: ${state.e.toString()}'));
-                  } else {
-                    return Container();
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Correo Electrónico'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor, ingresa tu correo electrónico';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _correoElectronico = value!;
+              },
+            ),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Rol'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor, ingresa tu rol';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _rol = value!;
+              },
+            ),
+            TextFormField(
+              decoration: InputDecoration(labelText: 'Estado'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor, ingresa tu estado';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _estado = value!;
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    // Guardar los datos del formulario
+                    _formKey.currentState!.save();
+                    // Aquí puedes hacer algo con los datos, como enviarlos a un servidor
+                    // o almacenarlos localmente.
+                    // En este ejemplo, solo imprimimos los datos.
+                    print('Nombre: $_nombre');
+                    print('Correo Electrónico: $_correoElectronico');
+                    print('Rol: $_rol');
+                    print('Estado: $_estado');
                   }
                 },
+                child: Text('Guardar'),
               ),
-            )
+            ),
           ],
         ),
       ),

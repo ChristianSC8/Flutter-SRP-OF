@@ -70,7 +70,7 @@ class _FormPayContentState extends State<FormPayContent> {
                   ),
                 ),
                 Text(
-                  'Paquetes',
+                  'Formas de pago',
                   style: TextStyle(
                     fontSize: 20,
                     color: Color(0xFF243465),
@@ -166,7 +166,7 @@ class _FormPayContentState extends State<FormPayContent> {
                                     contentPadding:
                                         EdgeInsets.fromLTRB(15, 0, 0, 0),
                                     title: Text(
-                                      formPay.descripcion,
+                                      formPay.nombre,
                                       style: TextStyle(
                                         color: Color(0xFF243465),
                                         fontSize: 20,
